@@ -1,0 +1,26 @@
+name: Deploy to EC2 using Docker Compose
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: appleboy/ssh-action@master
+        with:
+          username: ubuntu
+          host: ${{ secrets.EC2_HOST_IP }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/ubuntu/manulo || exit 1
+            sudo git pull origin main || exit 1
+            sudo docker-compose down || true
+            sudo docker system prune -af || true
+            sudo docker-compose up -d --build || exit 1

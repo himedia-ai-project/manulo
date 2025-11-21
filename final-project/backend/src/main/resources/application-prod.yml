@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+app:
+  props:
+    jwt:
+      access-token-expiration-period: 15
+      refresh-token-expiration-period: 1440

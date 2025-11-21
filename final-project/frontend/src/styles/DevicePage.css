@@ -1,0 +1,143 @@
+.device-page-container {
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+.search-bar {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 2px 16px;
+  margin-bottom: 24px;
+  max-width: 500px;
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.search-bar:focus-within {
+  border-color: #adb5bd;
+  box-shadow: 0 0 0 2px rgba(173, 181, 189, 0.2);
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.search-bar input::placeholder {
+  color: #6c757d;
+}
+
+.search-select {
+  margin-left: 10px;
+  padding: 6px 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+.search-select:hover, .search-select:focus {
+  border-color: #adb5bd;
+}
+
+.search-select option {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.device-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px;
+  transition: transform 0.2s;
+}
+
+.device-item:hover {
+  transform: scale(1.05);
+}
+
+.device-icon-container {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.device-icon {
+  width: 54px;
+  height: 54px;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 10;
+  color: gray;
+  transition: color 0.3s ease;
+}
+
+.favorite-icon.active {
+  color: #ff5b5c;
+}
+
+.favorite-icon:hover {
+  color: #ff5b5c;
+}
+
+.device-name {
+  font-size: 12px !important;
+  text-align: center;
+  color: #333333;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .device-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .device-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
